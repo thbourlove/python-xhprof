@@ -28,9 +28,8 @@ def get_xhprof_data(stats):
 
     def full(name):
         module, lineno, func_name = name
-        module = module.replace('.py', '')
-        module = module.replace('.', '\\')
-        return '{0}:{1}::{2}'.format(module, lineno, func_name)
+        func_name = func_name.replace('.', '::')
+        return func_name
 
     data = {}
     data['main()'] = {
